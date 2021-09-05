@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>(Website) The best way of integrating MathJax Js in to Hugo for LaTeX math typing | 俊樹&#39;s Miscellaneous</title>
+
+    
+<link href="/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="安田俊樹" />
+<meta name="description" content="Using MathJax on Hugo has always been a huge problem from framework to inline math, this article will give you the clearest solution for integrating MathJax Js into Hugo based blog sites
+" />
+
+
+
+<meta name="generator" content="Hugo 0.81.0" />
+
+<link rel="canonical" href="https://AShao0425.github.io/posts/mathjax-support/" />
+
+
+<meta property="og:title" content="(Website) The best way of integrating MathJax Js in to Hugo for LaTeX math typing" />
+<meta property="og:description" content="Using MathJax on Hugo has always been a huge problem from framework to inline math, this article will give you the clearest solution for integrating MathJax Js into Hugo based blog sites" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://AShao0425.github.io/posts/mathjax-support/" /><meta property="og:image" content="https://AShao0425.github.io/post3/logo.svg.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-05T06:59:49&#43;08:00" />
+<meta property="article:modified_time" content="2021-09-05T06:59:49&#43;08:00" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://AShao0425.github.io/post3/logo.svg.png"/>
+
+<meta name="twitter:title" content="(Website) The best way of integrating MathJax Js in to Hugo for LaTeX math typing"/>
+<meta name="twitter:description" content="Using MathJax on Hugo has always been a huge problem from framework to inline math, this article will give you the clearest solution for integrating MathJax Js into Hugo based blog sites"/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.item, .ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.item, .ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.item, .ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: ZgotmplZ;
+    
+
+    
+    background-image: url(/background/back1.png);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: ZgotmplZ;
+    
+
+    
+    background-image: url(/background/BackgroundBlack.jpg);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/tomorrow.min.css" />
+
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+  </head>
+
+  <body class="default">
+
+    
+<nav class="ui secondary menu dream-menu dream-nav">
+
+  <a class="item dream-flip-toggle" title="Flip it!">
+    <i class="large link bullseye icon"></i>
+  </a>
+  <a class="item" href="https://AShao0425.github.io/" title="Home">
+    <i class="large link home icon"></i>
+  </a>
+  
+  <a class="item" onclick="themeSwitch(event)">
+    <i class="large link icon theme-switch"></i>
+  </a>
+  
+  
+  <a class="item" title="Search" onclick="toggleSearch(event)">
+    <i class="large link search icon"></i>
+  </a>
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#procedures">Procedures</a></li>
+    <li><a href="#math-typetestting">Math Typetestting</a>
+      <ul>
+        <li><a href="#repeating-fractions">Repeating fractions</a></li>
+        <li><a href="#summation-notation">Summation notation</a></li>
+        <li><a href="#product-notation">Product notation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">(Website) The best way of integrating MathJax Js in to Hugo for LaTeX math typing<span class="sub header">
+            <span class="left">
+              @
+              
+                
+                  安田俊樹
+                
+              
+
+              | 
+                  <span data-format="luxon">2021-09-05T06:59:49&#43;08:00</span>
+                
+
+              | 4 minutes read
+
+              
+              | Update at
+                
+                  <span data-format="luxon">2021-09-05T06:59:49&#43;08:00</span>
+                
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="Save as image" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=%28Website%29%20The%20best%20way%20of%20integrating%20MathJax%20Js%20in%20to%20Hugo%20for%20LaTeX%20math%20typing&url=https%3a%2f%2fAShao0425.github.io%2fposts%2fmathjax-support%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fAShao0425.github.io%2fposts%2fmathjax-support%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+        <img class="cover" src="/post3/logo.svg.png" />
+        
+
+        <p><em>Using MathJax on Hugo has always been a huge problem from framework to inline math, this article will give you the clearest solution for integrating MathJax Js into Hugo based blog sites</em></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=830 height=100 src="//music.163.com/outchain/player?type=2&id=1464768125&auto=0&height=66"></iframe>
+## Introduction
+MathJax is a cross-browser JavaScript library that displays mathematical notation in web browsers, using MathML, $\LaTeX$ and ASCIIMathML markup according to Wikipedia[https://en.wikipedia.org/wiki/MathJax] and yet it's **open source** so whcih means it's free! 😎
+<p>Integrating Mathjax to static sites is easy by simply adding new <code>html</code> lines into <code>header.html</code> or <code>footer.html</code> in your <code>partials</code> directory to make Mathjax enabled and supported in every webpage of your blog site. BUT the issue is, while typing $\LaTeX$ math in markdown for generating html for webpages, you typically use two <code>$</code> dollar symbol and put formulas and equations inside it, in some other versions of Mathjax, they might also force you to use <code>\\(</code> and <code>\\)</code> for inline math expressions, these symbols are not correct syntax in $\LaTeX$, yet those are commonly used symbols in writing so which might leads to false-positives identification form MathJax. For example &ldquo;I want to use 10$ to buy an apple on TaoBao with a 5$ discount coupon&rdquo;, the text between the dollar signs are not math, you want a plain sentence, whereas MathJax mistakenly recongnize that as inline math under the default configuration of the javascript library.</p>
+<p>The second issue is some hugo themes have neither Mathjax[https://mathjax.org] nor Katex[https://katex.org] built-in for math support, under this situation you have to modify on your own, but some themes might disabled you from using Mathjax, in this situation you will have to create new  <code>css</code> stylesheets and <code>html</code> configuration file to anable it manually, this will be mentioned herinafter. Normally, javescript library of Mathjax is larger then Katex, but Mathjax has a relatively larger library then Katex does, so conclusively js of Mathjax loads sloer then Katex by 50 times or more, slow loading could also leads to $\LaTeX$ crashes that expressions will not be rendered from time to time. Main issues and disadvantages are listed below:</p>
+<ul>
+<li>Different versions</li>
+<li>False-positives</li>
+<li>Syntax error</li>
+<li>Existence of built-in Mathjax Js library</li>
+<li>Slow loading on webpages</li>
+<li>Adaptation failure</li>
+</ul>
+<blockquote>
+<p>MathJax v3 is a complete rewrite of MathJax from the ground up, and so its internal structure is quite different from that of version 2. That means MathJax v3 is not a drop-in replacement for MathJax v2, and upgrading to version 3 takes some adjustment to your web pages<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.
+But Don&rsquo;t worry, I&rsquo;ll show you how to solve these probles now!</p>
+</blockquote>
+<h2 id="procedures">Procedures</h2>
+<p>In our case, we will be using Mathjax v.3, the latest version of Mathjax to complete integration.</p>
+<ul>
+<li>Create a new <code>html</code> file in your theme directory, the root path should be this <code>themes/your-theme/layouts/partials/mathjax_support.html</code>, open the file and paste the following code to it and save.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#a6e22e">MathJax</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">tex</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">inlineMath</span><span style="color:#f92672">:</span> [[<span style="color:#e6db74">&#39;$&#39;</span>, <span style="color:#e6db74">&#39;$&#39;</span>], [<span style="color:#e6db74">&#39;\\(&#39;</span>, <span style="color:#e6db74">&#39;\\)&#39;</span>]],
+    <span style="color:#a6e22e">displayMath</span><span style="color:#f92672">:</span> [[<span style="color:#e6db74">&#39;$$&#39;</span>,<span style="color:#e6db74">&#39;$$&#39;</span>], [<span style="color:#e6db74">&#39;\\[&#39;</span>, <span style="color:#e6db74">&#39;\\]&#39;</span>]],
+    <span style="color:#a6e22e">processEscapes</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">processEnvironments</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+  },
+  <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">skipHtmlTags</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;script&#39;</span>, <span style="color:#e6db74">&#39;noscript&#39;</span>, <span style="color:#e6db74">&#39;style&#39;</span>, <span style="color:#e6db74">&#39;textarea&#39;</span>, <span style="color:#e6db74">&#39;pre&#39;</span>]
+  }
+};
+
+window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;load&#39;</span>, (<span style="color:#a6e22e">event</span>) =&gt; {
+    document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#e6db74">&#34;mjx-container&#34;</span>).<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">x</span>){
+      <span style="color:#a6e22e">x</span>.<span style="color:#a6e22e">parentElement</span>.<span style="color:#a6e22e">classList</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;has-jax&#39;</span>})
+  });
+
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://polyfill.io/v3/polyfill.min.js?features=es6&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;MathJax-script&#34;</span> <span style="color:#a6e22e">async</span>
+  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div></li>
+<li>Next, open the file in <code>themes/your-theme/layouts/partials/header.html</code> or <code>themes/your-theme/layouts/partials/footer.html</code>, these two <code>html</code> files includes the elements on every single webpage of your site. Find <code>&lt;/footer&gt;</code> tag (or <code>&lt;/header&gt;</code> depends on which file you choose to insert the code, in my case I used <code>footer.heml</code>), then copy and paste the code just a line above the <code>&lt;/footer&gt;</code> tag.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ if .Params.mathjax }}
+  {{ partial &#34;mathjax_support.html&#34; . }}
+{{ end }}
+</code></pre></div></li>
+<li>Create a <code>custom.css</code> file under <code>static/css</code> if you don&rsquo;t have the <code>css</code> folder create one, then create the <code>css</code> file. Css file are used for describing the presentation a <code>html</code> page. Finally paste the following code to the <code>custom.css</code> file and save the document. You are able to configures the parameters in the <code>css</code> file based on your webpage, the code works fine with mine.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">code</span>.<span style="color:#a6e22e">has-jax</span> {
+  <span style="color:#66d9ef">-webkit-</span>font-smoothing: antialiased;
+  <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">inherit</span> <span style="color:#75715e">!important</span>;
+  <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span> <span style="color:#75715e">!important</span>;
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+}
+</code></pre></div></li>
+<li>Add <code>mathjax: true</code> to your archetype file, or just before writing, put <code>mathjax: true</code> in your configuration Mathjax in that specific blog page, if you want disable it, just simple switch <code>true</code> to <code>false</code></li>
+<li>Until now you are good to go! Let&rsquo;s check out some math typetesting with MathJax.</li>
+</ul>
+<h2 id="math-typetestting">Math Typetestting</h2>
+<h3 id="repeating-fractions">Repeating fractions</h3>
+<p>$$
+\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} \equiv 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots} } } }
+$$
+$\LaTeX$ code:</p>
+<pre><code>$$
+\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} \equiv 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots} } } }
+$$
+</code></pre><h3 id="summation-notation">Summation notation</h3>
+<p>$$
+\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+$$
+$\LaTeX$ code:</p>
+<pre><code>$$
+\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+$$
+</code></pre><h3 id="product-notation">Product notation</h3>
+<p>$$
+1+\frac{q^{2}}{(1-q)}+\frac{q^{6}}{(1-q)\left(1-q^{2}\right)}+\cdots=\prod_{j=0}^{\infty} \frac{1}{\left(1-q^{5 j+2}\right)\left(1-q^{5 j+3}\right)}, \text { for }|q|&lt;1
+$$
+$\LaTeX$ Code:</p>
+<pre><code>$$
+1+\frac{q^{2}}{(1-q)}+\frac{q^{6}}{(1-q)\left(1-q^{2}\right)}+\cdots=\prod_{j=0}^{\infty} \frac{1}{\left(1-q^{5 j+2}\right)\left(1-q^{5 j+3}\right)}, \text { for }|q|&lt;1
+$$
+</code></pre><p>Paste the codes above to your markdown file and save, then refresh your webpage if these complex equations shows up, which means you are good to go!😊 <strong>Wish you have a good day! 😁</strong></p>
+<blockquote>
+</blockquote>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>MathJax docs – Upgrading from v2 to v3[http://docs.mathjax.org/en/latest/upgrading/v2.html#version-2-compatibility-example] <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+      </article>
+    </section>
+
+    
+
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2020 - 2021 俊樹&#39;s Miscellaneous</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+              <p>Site built and owned by 俊樹Alex.</p>
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/avatar/Avatar3.jpg" alt="avatar" />
+  </div>
+  
+
+  
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">俊樹&#39;s Miscellaneous<span class="sub header">Lover of Mathematics and Sicence.</span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/posts">
+        <i class="archive icon" title="Archives"></i>
+      </a>
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="All Categories"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="All Tags"></i>
+      </a>
+    </article>
+
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+
+    
+
+    
+    
+    
+          <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/code/" title="Code">
+              Code
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/gravity/" title="Gravity">
+              Gravity
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/html/" title="Html">
+              Html
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/hugo/" title="Hugo">
+              Hugo
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/js/" title="Js">
+              Js
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/latex/" title="LaTeX">
+              LaTeX
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/mathematics/" title="Mathematics">
+              Mathematics
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/mathjax/" title="MathJax">
+              MathJax
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/tutorial/" title="Tutorial">
+              Tutorial
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/website/" title="Website">
+              Website
+            </a>
+          
+          </div>
+    
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+  
+  
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment markdown-body">
+      <div class="ui medium header">Bio 👋</div>
+      <ul>
+<li><strong>👨Names</strong>:
+<ul>
+<li>English: Alex Shao</li>
+<li>中文: 邵宪辉</li>
+<li>日本語：安田俊樹</li>
+</ul>
+</li>
+<li><strong>👀Age</strong>: 16, 2005/4/25</li>
+<li><strong>🏫School</strong>: SLAS (shittiest school ever)</li>
+<li><strong>❤️Interests</strong>: Python, Html, Java, Js, Anime(especially &ldquo;ダンジョンに出会いを求めるのは間違っているだろうか&rdquo;), Math, Science, Sleep, Diarreah &amp; Constipation (Well, I had stomache issue since I was born, innate), bikes</li>
+<li><strong>🚩Nationality</strong>: Chinese &amp; Japanese (Microsoft somehow does not support country flag emojis&hellip;)</li>
+<li><strong>💼Occupation</strong>: Student</li>
+<li><strong>📺Movies</strong>: No movies, animes only, &ldquo;ダンジョンに出会いを求めるのは間違っているだろうか&rdquo;</li>
+<li><strong>📫Email</strong>: <a href="mailto:alex2005@gmail.com">alex2005@gmail.com</a></li>
+<li><strong>👨‍🏫Values</strong>: Constrain impetuosity</li>
+<li><strong>🐧QQ</strong>: 1959796501 (Also contact my QQ besides mail)</li>
+<li><strong>💻Device</strong>: Huawei Matebook 14, 2019</li>
+<li><strong>🖱️IDE</strong>: VsCode</li>
+</ul>
+
+    </article>
+  </div>
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment markdown-body">
+      <div class="ui medium header">Acknowledgments</div>
+      <ul>
+<li><strong>Vansh Kamleshbhai Padaliya</strong>: Always helping and assisting with no doubts and hesitations, good buddy, known for 3 years.</li>
+<li><strong>吴思萌 Mónica</strong>: An elder sister, always accompanying and encouraging, deskmate in previous school, known for 5 years.</li>
+<li><strong>姚轶膑</strong>: Great buddy as well, spent time screwing out often, always encouraging, known for 5 years.</li>
+<li><strong>Koki Kin</strong>: Typical Japanese Otaku, still a great buddy, known for 1.5 years, giving help when I need.</li>
+<li><strong>Semih Deli</strong>: Known since 2, developed this site together.</li>
+<li>All the others people who answered my requests I pulled on Github when I met problems.</li>
+</ul>
+
+    </article>
+  </div>
+  
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">Social Links</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <a class="item" href="/index.xml">
+    <i class="large rss square icon" title="RSS"></i>
+  </a>
+  
+
+  
+  <a class="item" href="mailto:AlexShao20050425@163.com">
+    <i class="large mail icon" title="Email"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a class="item" href="https://github.com/https://github.com/Toshiki0425" target="_blank">
+    <i class="large github icon" title="GitHub"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+  
+  
+    <a class="item" href="https://github.com/Toshiki0425" target="_blank">
+      <i class="large github icon" title="GitHub"></i>
+    </a>
+  
+    <a class="item" href="https://stackoverflow.com/users/5676489/g1eny0ung" target="_blank">
+      <i class="large stack overflow icon" title="stack overflow"></i>
+    </a>
+  
+  
+</nav>
+
+    </article>
+  </div>
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
+    <article class="ui segment">
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </article>
+    
+  </div>
+
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+    <div class="ui segment" id="dream-search">
+  <div class="ui search">
+    <div class="ui transparent input">
+      <input class="prompt" type="text" placeholder="Search" />
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $.getJSON('https:\/\/AShao0425.github.io\//index.json', function (data) {
+      $('.ui.search').search({
+        source: data,
+        searchFields: ['title'],
+        showNoResults: false,
+      })
+    })
+  })
+</script>
+<script src="/js/search.js"></script>
+
+    
+
+    
+
+    <script>
+  window.background = "/background/back1.png"
+  window.defaultDark =  null 
+  window.backgroundDark = "/background/BackgroundBlack.jpg"
+  window.backgroundImageDark = "/background/BackgroundBlack.jpg"
+  window.darkNav =  true 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+  window.fixedNav =  true 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
+
+<script>
+  format()
+
+  function format() {
+    $('span[data-format="luxon"]').each(function () {
+      var date = $(this).text()
+
+      $(this).text(luxon.DateTime.fromISO(date, { locale: "en" }).toFormat("yyyy/MM/dd"))
+    })
+  }
+</script>
+
+
+
+<script src="/js/scrollToTop.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/clojure.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
+
+
+
+<script>
+  hljs.highlightAll()
+  setHighlightTheme()
+
+  function setHighlightTheme() {
+    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
+    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
+
+    var lightTheme = "tomorrow"
+    var darkTheme = "tomorrow-night"
+    var theme = isDark === 'y' ? darkTheme : lightTheme
+
+    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
+    $('pre').css('background', isDark === 'y' ? '#333' : '')
+  }
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+  <script type="text/javascript">
+     
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("😁","😜","😋","😀","😂","😉","😄","🤤","🤣","😝","😛","😏");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+</html>

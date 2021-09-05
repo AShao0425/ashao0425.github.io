@@ -146,6 +146,7 @@
     <div class="ui segment toc">
       <nav id="TableOfContents">
   <ul>
+    <li><a href="#introduction">Introduction</a></li>
     <li><a href="#procedures">Procedures</a></li>
     <li><a href="#math-typetestting">Math Typetestting</a>
       <ul>
@@ -212,11 +213,11 @@
         
 
         <p><em>Using MathJax on Hugo has always been a huge problem from framework to inline math, this article will give you the clearest solution for integrating MathJax Js into Hugo based blog sites</em></p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=830 height=100 src="//music.163.com/outchain/player?type=2&id=1464768125&auto=0&height=66"></iframe>
-## Introduction
-MathJax is a cross-browser JavaScript library that displays mathematical notation in web browsers, using MathML, $\LaTeX$ and ASCIIMathML markup according to Wikipedia[https://en.wikipedia.org/wiki/MathJax] and yet it's **open source** so whcih means it's free! 😎
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1464768125&auto=0&height=66"></iframe>
+<h2 id="introduction">Introduction</h2>
+<p>MathJax is a cross-browser JavaScript library that displays mathematical notation in web browsers, using MathML, $\LaTeX$ and ASCIIMathML markup according to <a href="https://en.wikipedia.org/wiki/MathJax">Wikipedia</a> and yet it&rsquo;s <strong>open source</strong> so whcih means it&rsquo;s free! 😎</p>
 <p>Integrating Mathjax to static sites is easy by simply adding new <code>html</code> lines into <code>header.html</code> or <code>footer.html</code> in your <code>partials</code> directory to make Mathjax enabled and supported in every webpage of your blog site. BUT the issue is, while typing $\LaTeX$ math in markdown for generating html for webpages, you typically use two <code>$</code> dollar symbol and put formulas and equations inside it, in some other versions of Mathjax, they might also force you to use <code>\\(</code> and <code>\\)</code> for inline math expressions, these symbols are not correct syntax in $\LaTeX$, yet those are commonly used symbols in writing so which might leads to false-positives identification form MathJax. For example &ldquo;I want to use 10$ to buy an apple on TaoBao with a 5$ discount coupon&rdquo;, the text between the dollar signs are not math, you want a plain sentence, whereas MathJax mistakenly recongnize that as inline math under the default configuration of the javascript library.</p>
-<p>The second issue is some hugo themes have neither Mathjax[https://mathjax.org] nor Katex[https://katex.org] built-in for math support, under this situation you have to modify on your own, but some themes might disabled you from using Mathjax, in this situation you will have to create new  <code>css</code> stylesheets and <code>html</code> configuration file to anable it manually, this will be mentioned herinafter. Normally, javescript library of Mathjax is larger then Katex, but Mathjax has a relatively larger library then Katex does, so conclusively js of Mathjax loads sloer then Katex by 50 times or more, slow loading could also leads to $\LaTeX$ crashes that expressions will not be rendered from time to time. Main issues and disadvantages are listed below:</p>
+<p>The second issue is some hugo themes have neither <a href="https://mathjax.org">Mathjax</a> nor <a href="https://katex.org">Katex</a> built-in for math support, under this situation you have to modify on your own, but some themes might disabled you from using Mathjax, in this situation you will have to create new  <code>css</code> stylesheets and <code>html</code> configuration file to anable it manually, this will be mentioned herinafter. Normally, javescript library of Mathjax is larger then Katex, but Mathjax has a relatively larger library then Katex does, so conclusively js of Mathjax loads sloer then Katex by 50 times or more, slow loading could also leads to $\LaTeX$ crashes that expressions will not be rendered from time to time. Main issues and disadvantages are listed below:</p>
 <ul>
 <li>Different versions</li>
 <li>False-positives</li>
@@ -304,7 +305,7 @@ $$
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>MathJax docs – Upgrading from v2 to v3[http://docs.mathjax.org/en/latest/upgrading/v2.html#version-2-compatibility-example] <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="http://docs.mathjax.org/en/latest/upgrading/v2.html#version-2-compatibility-example">MathJax docs – Upgrading from v2 to v</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -368,7 +369,7 @@ $$
   
 
   <div class="content">
-    <h1 class="ui medium header">俊樹&#39;s Miscellaneous<span class="sub header">Lover of Mathematics and Sicence.</span>
+    <h1 class="ui medium header">俊樹&#39;s Miscellaneous<span class="sub header">Lover of Mathematics and Science.</span>
     </h1>
 
     <article class="ui horizontal list">

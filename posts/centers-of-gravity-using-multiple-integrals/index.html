@@ -293,7 +293,7 @@ $$
 \end{array}\right]=m(y-c)
 $$
 <img src="/post1/img4.png" alt="">
-<em>MatJax Js somewhat does not support to render complex formulas with newlining in html, the correct formula is attached as an image above</em></p>
+<em>MatJax Js somehow does not support to render complex formulas with newlining in html, the correct formula is attached as an image above</em></p>
 <p>If a number of point-masses are distributed throughout the $x y$-plane, the sum of their moments about $x=a$ is a measure of the tendency of the masses to produce a rotation of the plane (viewed as a weightless sheet) about the line $x=a$. If the sum of these moments is zero, the collective masses will produce no net rotational effect about the line. (Intuitively, this means that the plane would balance on a knife-edge along the line $x=a$. Similarly, if the sum of the moments of the masses about $y=c$ is zero, the plane would balance on a knife-edge along the line $y=c$.)</p>
 <p>We are now ready to solve Problem 1.2. We imagine the lamina to be subdivided into rectangular pieces using lines parallel to the coordinate axes and excluding from consideration any nonrectangular pieces at the boundary (Figure 1.3). We assume that there are $n$ such rectangular pieces and that the $k$ th piece has area $\Delta A_{k}$ and mass $\Delta M_{k} .$ We will let $\left(x_{k}^{*}, y_{k}^{*}\right)$ be the center of the $k$ th piece, and we will assume that the entire mass of the $k$ th piece is concentrated at its center. The mass of the $k$ th piece can be approximated by</p>
 <p>Since the lamina balances on the lines $x=\bar{x}$ and $y=\bar{y}$, the sum of the moments of the rectangular pieces about those lines should be close to zero; that is,
@@ -303,13 +303,10 @@ $$
 $$
 \sum_{k=1}^{n}\left(y_{k}^{*}-\bar{y}\right) \Delta M_{k}=\sum_{k=1}^{n}\left(y_{k}^{*}-\bar{y}\right) \delta\left(x_{k}^{*}, y_{k}^{*}\right) \Delta A_{k} \approx 0
 $$</p>
-<p>If we now increase $n$ in such a way that the dimensions of the rectangles tend to zero, then it is plausible that the errors in our approximations will approach zero, so that
-$$
-\lim <em>{n \rightarrow+\infty} \sum</em>{k=1}^{n}\left(x_{k}^{*}-\bar{x}\right) \delta\left(x_{k}^{*}, y_{k}^{*}\right) \Delta A_{k}=0
-$$
-$$
-\lim _{n \rightarrow+\infty} \sum_{k=1}^{n}\left(y_{k}^{*}-\bar{y}\right) \delta\left(x_{k}^{*}, y_{k}^{*}\right) \Delta A_{k}=0
-$$</p>
+<p>If we now increase $n$ in such a way that the dimensions of the rectangles tend to zero, then it is plausible that the errors in our approximations will approach zero, so that</p>
+<p><img src="/post1/for1.png" alt=""></p>
+<p><img src="/post1/for2.png" alt=""></p>
+<p><em>MatJax Js somehow does not support to render complex formulas, the correct formula is attached as an image above</em></p>
 <p>from which we obtain
 $$
 \iint_{R}(x-\bar{x}) \delta(x, y) d A=\iint_{R} x \delta(x, y) d A-\bar{x} \iint_{R} \delta(x, y) d A=0 \<br>

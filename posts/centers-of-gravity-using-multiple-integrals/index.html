@@ -88,6 +88,19 @@
   
 </style>
 
+<script>
+  document.addEventListener('visibilitychange',function(){
+      if( document.visibilityState == 'hidden' ){
+      normal_title = document.title;
+      document.title = 'w(ﾟДﾟ)w Ugh, site crashed！';
+      }else{
+      document.title = '(/▽＼) Yay, Site got fixed！';
+      setTimeout(function(){
+          document.title = normal_title;
+      }, 1200)
+      }
+  });
+  </script>
 
     
 
@@ -104,10 +117,11 @@
     
     <link rel="stylesheet" href="/css/custom.css" />
     
+
+    <link rel="stylesheet" href="/live2d/css/live2d.css" />
   </head>
 
   <body class="default">
-
     
 <nav class="ui secondary menu dream-menu dream-nav">
 
@@ -962,6 +976,22 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
     
+    <div id="landlord">
+      <div class="message" style="opacity:0"></div>
+      <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+      <div class="hide-button">Hide</div>
+    </div>
+    
+    <script type="text/javascript">
+      var message_Path = '/live2d/'
+      var home_Path = 'https://ashao0425.github.io/'  
+    </script>
+    <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="/live2d/js/message.js"></script>
+    <script type="text/javascript">
+      loadlive2d("live2d", "/live2d/model/tia/model.json");
+    </script>
+  
   </body>
   <script type="text/javascript">
      

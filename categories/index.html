@@ -97,6 +97,9 @@
   });
   </script>
 
+<script src="/js/pace.min.js"></script>
+<link href="/css/pace-theme-flash.css" rel="stylesheet">
+
      
 
     
@@ -292,8 +295,10 @@
 
     
   </div>
+  <script src="/js/sweetalert.min.js"></script> 
+  <link rel="stylesheet" href="/css/sweetalert.css" type='text/css' media='all' />
 </header>
-
+<script>document.body.oncopy = function() {swal("Copied successfully！", "If you would you like to use this site, please attribute or indicate the source if authorized！","success");};</script>
 
 <div class="ui container">
   <article class="ui segment dream-categories-section">
@@ -343,11 +348,38 @@
               
               <p>© 2020 - 2021 俊樹&#39;s Miscellaneous</p>
               
-
-              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
-
               
-              <p>Site built and owned by 俊樹Alex.</p>
+              <center>
+                <script async src="/js/busuanzi.pure.mini.js"></script>
+              👀Site views: <span style="color:seagreen"><span id="busuanzi_value_site_pv"></span></span> times
+              </center>
+              
+              <center>
+                👶site age: <SPAN id=span_dt_dt style="color: #2E8B57;"></SPAN>
+                <SCRIPT language=javascript>
+                function show_date_time(){
+                window.setTimeout("show_date_time()", 1000);
+                BirthDay=new Date("9/5/2021 02:14:49");
+                today=new Date();
+                timeold=(today.getTime()-BirthDay.getTime());
+                sectimeold=timeold/1000
+                secondsold=Math.floor(sectimeold);
+                msPerDay=24*60*60*1000
+                e_daysold=timeold/msPerDay
+                daysold=Math.floor(e_daysold);
+                e_hrsold=(e_daysold-daysold)*24;
+                hrsold=Math.floor(e_hrsold);
+                e_minsold=(e_hrsold-hrsold)*60;
+                minsold=Math.floor((e_hrsold-hrsold)*60);
+                seconds=Math.floor((e_minsold-minsold)*60);
+                span_dt_dt.innerHTML=""+daysold+" "+"days"+" "+hrsold+" "+"hours"+" "+minsold+" "+"minutes"+" "+seconds+" "+"seconds";
+                }
+                show_date_time();
+                </SCRIPT>
+              </center>
+              
+              
+              
               
             </footer>
           </div>
@@ -512,8 +544,10 @@
 
     
   </div>
+  <script src="/js/sweetalert.min.js"></script> 
+  <link rel="stylesheet" href="/css/sweetalert.css" type='text/css' media='all' />
 </header>
-
+<script>document.body.oncopy = function() {swal("Copied successfully！", "If you would you like to use this site, please attribute or indicate the source if authorized！","success");};</script>
 
 <div class="ui relaxed grid dream-grid dream-back">
   
@@ -687,6 +721,7 @@
 <script src="/js/header.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/theme.js"></script>
+
      
 
     
@@ -720,36 +755,16 @@ if (!doNotTrack) {
     <script type="text/javascript">
       loadlive2d("live2d", "/live2d/model/tia/model.json");
     </script>
-  
+
+    <script src="https://g.joyinshare.com/hc/ribbon.min.js" type="text/javascript"></script>
   </body>
-  <script type="text/javascript">
-     
-    var a_idx = 0;
-    jQuery(document).ready(function($) {
-        $("body").click(function(e) {
-            var a = new Array("😁","😜","😋","😀","😂","😉","😄","🤤","🤣","😝","😛","😏");
-            var $i = $("<span></span>").text(a[a_idx]);
-            a_idx = (a_idx + 1) % a.length;
-            var x = e.pageX,
-            y = e.pageY;
-            $i.css({
-                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
-                "top": y - 20,
-                "left": x,
-                "position": "absolute",
-                "font-weight": "bold",
-                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
-            });
-            $("body").append($i);
-            $i.animate({
-                "top": y - 180,
-                "opacity": 0
-            },
-            1500,
-            function() {
-                $i.remove();
-            });
-        });
-    });
-    </script>
+  
+   <script type="text/javascript">
+    
+
+    </script> 
+
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+    <script type="text/javascript" src="/js/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/fireworks.js"></script>
 </html>

@@ -113,3 +113,7 @@ kbd {
 }
 
 *{ cursor:url(/others/cursor.cur),auto;}
+
+img.rounded-corners {
+  border-radius: 30px;
+}
